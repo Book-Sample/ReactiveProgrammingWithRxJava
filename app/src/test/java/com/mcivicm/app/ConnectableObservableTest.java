@@ -88,5 +88,10 @@ public class ConnectableObservableTest {
         System.out.println("disposed 1");
         disposable2.dispose();
         System.out.println("disposed 2");
+        //后面又重新建立连接
+        Disposable disposable3=lazy.subscribe();
+        System.out.println("Subscribed 3");
+        Disposable disposable4=lazy.subscribe();
+        System.out.println("Subscribed 4");
     }
 }
