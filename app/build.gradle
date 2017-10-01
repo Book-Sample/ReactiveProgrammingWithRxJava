@@ -41,6 +41,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.google.guava:guava:23.0-android'
+    compile 'io.reactivex:rxnetty-http:0.5.2'
     compile files('libs/commons-lang3-3.6/commons-lang3-3.6.jar')
     compile files('libs/commons-lang3-3.6/commons-lang3-3.6-javadoc.jar')
     compile files('libs/commons-lang3-3.6/commons-lang3-3.6-sources.jar')
