@@ -1,13 +1,12 @@
 package com.mcivicm.metrics;
 
-import com.codahale.metrics.ConsoleReporter;
+import com.codahale.metrics.JmxReporter;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 
 import org.junit.Test;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by zhang on 2017/10/10.
@@ -19,18 +18,22 @@ public class TimerTest {
 
     @Test
     public void name() throws Exception {
+
         MetricRegistry registry = new MetricRegistry();
 
+        //统计时间段
         Timer timer = registry.timer(MetricRegistry.name(TimerTest.class, "get-latency"));
 
-        ConsoleReporter reporter = ConsoleReporter.forRegistry(registry).build();
-        reporter.start(1, TimeUnit.SECONDS);
+        JmxReporter reporter = JmxReporter.forRegistry(registry).build();
+        reporter.start();
 
         int num = 0;
-        while (num++ < 10) {
-            Timer.Context context = timer.time();
-            Thread.sleep(random.nextInt(1000));
-            context.stop();
+        while (num++ < 1000) {
+            System.out.println("num: " + num);
+            Timer.Context context = timer.time();//计时开始
+            Thread.sleep(500);
+            context.stop();//计时结束
         }
+
     }
 }
