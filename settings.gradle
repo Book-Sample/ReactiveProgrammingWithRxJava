@@ -1,1 +1,1 @@
-include ':app', ':metrics', ':meetup', ':hystrix'
+include ':app', ':metrics', ':meetup', ':hystrix', ':couchbase'

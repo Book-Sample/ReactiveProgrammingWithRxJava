@@ -10,7 +10,7 @@ import java.util.Collection;
 import rx.functions.Func1;
 
 /**
- * Created by zhang on 2017/10/11.
+ * 合并多个
  */
 
 public class FetchRatingCollapser extends HystrixObservableCollapser<Book, Rating, Rating, Book> {
